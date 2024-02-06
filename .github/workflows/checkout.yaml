@@ -1,0 +1,21 @@
+name: Github Action Demo
+on: [push]
+jobs:
+  Exploring:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World"
+      - run: echo "This action was trigered by a ${{ github.event_name}} event"
+
+  Building:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building th project"
+      - run: echo "Bild complete"
+
+  Checkout:
+    needs: Building
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkoutcode
+      - uses: actions/checkout@v2
